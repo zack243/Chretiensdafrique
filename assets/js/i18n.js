@@ -185,7 +185,7 @@
       /* ---- DONATION ---- */
       'donation-label': 'Agir maintenant',
       'donation-title': 'Ensemble, transformons<br>une génération.',
-      'donation-body': 'Votre générosité est le carburant de notre mission. Choisissez le mode de don qui vous convient — toutes les informations sont directement disponibles ci-dessous.',
+      'donation-body': 'Votre générosité est le carburant de notre mission. Toutes les informations pour effectuer votre virement sont disponibles ci-dessous.',
       'don-bank-title': 'Compte bancaire',
       'don-bank-badge': 'RDC · International',
       'don-bank-desc': 'Effectuez un virement depuis votre banque locale ou internationale avec les coordonnées suivantes :',
@@ -194,6 +194,7 @@
       'don-bank-row-3': 'N° Compte',
       'don-bank-row-4': 'Référence',
       'don-bank-val-4': 'DON · [Votre nom]',
+      'don-copy-btn': 'Copier le numéro de compte',
       'don-mm-title': 'Mobile Money',
       'don-mm-badge': 'M-Pesa · Orange Money',
       'don-mm-desc': 'Envoyez votre don instantanément depuis votre téléphone. Simple, rapide et sécurisé depuis la RDC.',
@@ -448,7 +449,7 @@
       /* ---- DONATION ---- */
       'donation-label': 'Act now',
       'donation-title': 'Together, let us transform<br>a generation.',
-      'donation-body': 'Your generosity is the fuel of our mission. Choose the donation method that suits you — all information is directly available below.',
+      'donation-body': 'Your generosity is the fuel of our mission. All the information to make your bank transfer is available below.',
       'don-bank-title': 'Bank account',
       'don-bank-badge': 'DRC · International',
       'don-bank-desc': 'Make a transfer from your local or international bank with the following details:',
@@ -457,6 +458,7 @@
       'don-bank-row-3': 'Account No.',
       'don-bank-row-4': 'Reference',
       'don-bank-val-4': 'DONATION · [Your name]',
+      'don-copy-btn': 'Copy account number',
       'don-mm-title': 'Mobile Money',
       'don-mm-badge': 'M-Pesa · Orange Money',
       'don-mm-desc': 'Send your donation instantly from your phone. Simple, fast and secure from the DRC.',

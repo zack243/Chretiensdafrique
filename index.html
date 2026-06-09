@@ -758,134 +758,41 @@
     <div class="donation-header">
       <div class="section-label reveal" data-i18n="donation-label">Agir maintenant</div>
       <h2 class="section-title reveal d1" data-i18n="donation-title">Ensemble, transformons<br>une génération.</h2>
-      <p class="reveal d2" data-i18n="donation-body">Votre générosité est le carburant de notre mission. Choisissez le mode de don qui vous convient — toutes les informations sont directement disponibles ci-dessous.</p>
+      <p class="reveal d2" data-i18n="donation-body">Votre générosité est le carburant de notre mission. Toutes les informations pour effectuer votre virement sont disponibles ci-dessous.</p>
     </div>
 
-    <div class="donation-grid">
-      <!-- BANK TRANSFER -->
-      <div class="donation-card reveal">
-        <div class="donation-card-head">
-          <div class="donation-card-head-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
-            </svg>
-          </div>
-          <div>
-            <h3 data-i18n="don-bank-title">Compte bancaire</h3>
-            <div class="badge" data-i18n="don-bank-badge">RDC · International</div>
-          </div>
+    <!-- BANK INFO BLOCK -->
+    <div class="donation-bank-block reveal d1">
+      <div class="donation-bank-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+          <line x1="6" y1="14" x2="10" y2="14"/><line x1="6" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div class="donation-bank-eyebrow" data-i18n="don-bank-badge">RDC · International</div>
+      <h3 class="donation-bank-name">Fondation Chrétiens d'Afrique ASBL</h3>
+      <div class="donation-bank-divider"></div>
+      <div class="donation-bank-rows">
+        <div class="donation-bank-row">
+          <span class="donation-bank-label" data-i18n="don-bank-row-2">Banque</span>
+          <span class="donation-bank-value">Ecobank</span>
         </div>
-        <div class="donation-card-body">
-          <p data-i18n="don-bank-desc">Effectuez un virement depuis votre banque locale ou internationale avec les coordonnées suivantes :</p>
-          <div class="donation-table">
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-bank-row-1">Titulaire</span>
-              <span class="donation-row-value">Fondation Chrétiens d'Afrique ASBL</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-bank-row-2">Banque</span>
-              <span class="donation-row-value">Ecobank</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-bank-row-3">N° Compte</span>
-              <span class="donation-row-value hl">00260-0001-35080098998-57</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-bank-row-4">Référence</span>
-              <span class="donation-row-value" data-i18n="don-bank-val-4">DON · [Votre nom]</span>
-            </div>
-          </div>
+        <div class="donation-bank-row">
+          <span class="donation-bank-label" data-i18n="don-bank-row-3">N° Compte</span>
+          <span class="donation-bank-value donation-bank-account">00260-0001-35080098998-57</span>
+        </div>
+        <div class="donation-bank-row">
+          <span class="donation-bank-label" data-i18n="don-bank-row-4">Référence</span>
+          <span class="donation-bank-value" data-i18n="don-bank-val-4">DON · [Votre nom]</span>
         </div>
       </div>
-
-      <!-- MOBILE MONEY -->
-      <div class="donation-card reveal d1">
-        <div class="donation-card-head">
-          <div class="donation-card-head-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="5" y="2" width="14" height="20" rx="2"/>
-              <line x1="12" y1="18" x2="12" y2="18.01"/>
-              <line x1="9" y1="6" x2="15" y2="6"/>
-            </svg>
-          </div>
-          <div>
-            <h3 data-i18n="don-mm-title">Mobile Money</h3>
-            <div class="badge" data-i18n="don-mm-badge">M-Pesa · Orange Money</div>
-          </div>
-        </div>
-        <div class="donation-card-body">
-          <p data-i18n="don-mm-desc">Envoyez votre don instantanément depuis votre téléphone. Simple, rapide et sécurisé depuis la RDC.</p>
-          <div class="donation-table">
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-mm-row-1">M-Pesa</span>
-              <span class="donation-row-value hl" data-i18n="don-mm-val-1">Numéro sur demande</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-mm-row-2">Orange Money</span>
-              <span class="donation-row-value hl" data-i18n="don-mm-val-2">Numéro sur demande</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-mm-row-3">Bénéficiaire</span>
-              <span class="donation-row-value" data-i18n="don-mm-val-3">Fondation CA</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-mm-row-4">Message</span>
-              <span class="donation-row-value" data-i18n="don-mm-val-4">DON + [Votre nom]</span>
-            </div>
-          </div>
-          <a href="mailto:info@chretiensdafrique.org?subject=Numéro%20Mobile%20Money%20-%20Don" class="donation-cta">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <span data-i18n="don-mm-cta">Obtenir le numéro</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- CARD PAYMENT -->
-      <div class="donation-card reveal d2">
-        <div class="donation-card-head">
-          <div class="donation-card-head-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="1" y="4" width="22" height="16" rx="2"/>
-              <line x1="1" y1="10" x2="23" y2="10"/>
-            </svg>
-          </div>
-          <div>
-            <h3 data-i18n="don-card-title">Carte bancaire</h3>
-            <div class="badge" data-i18n="don-card-badge">Visa · Mastercard</div>
-          </div>
-        </div>
-        <div class="donation-card-body">
-          <p data-i18n="don-card-desc">Pour les donateurs internationaux, votre don par carte est traité via un processus sécurisé sur demande.</p>
-          <div class="donation-table">
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-card-row-1">Cartes</span>
-              <span class="donation-row-value" data-i18n="don-card-val-1">Visa · Mastercard</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-card-row-2">Devises</span>
-              <span class="donation-row-value" data-i18n="don-card-val-2">USD · EUR · CDF</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-card-row-3">Processus</span>
-              <span class="donation-row-value" data-i18n="don-card-val-3">Lien sécurisé par email</span>
-            </div>
-            <div class="donation-row">
-              <span class="donation-row-label" data-i18n="don-card-row-4">Reçu fiscal</span>
-              <span class="donation-row-value hl" data-i18n="don-card-val-4">Fourni systématiquement</span>
-            </div>
-          </div>
-          <a href="mailto:info@chretiensdafrique.org?subject=Don%20par%20carte%20bancaire" class="donation-cta">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <span data-i18n="don-card-cta">Initier mon don</span>
-          </a>
-        </div>
-      </div>
+      <button class="donation-copy-btn" onclick="navigator.clipboard.writeText('00260-0001-35080098998-57').then(function(){var b=this;b.textContent='✓ Copié !';setTimeout(function(){b.textContent='Copier le numéro de compte'},2000)}.bind(this))">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="9" y="9" width="13" height="13" rx="2"/>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <span data-i18n="don-copy-btn">Copier le numéro de compte</span>
+      </button>
     </div>
 
     <div class="donation-note reveal">

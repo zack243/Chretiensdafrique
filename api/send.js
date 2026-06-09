@@ -1,51 +1,33 @@
-const express    = require('express');
-const nodemailer = require('nodemailer');
-const path       = require('path');
-require('dotenv').config();
+const { Resend } = require('resend');
 
-const app  = express();
-const PORT = process.env.PORT || 3000;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
+module.exports = async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ ok: false, error: 'Method not allowed' });
+  }
 
-/* ── SMTP transporter ── */
-const transporter = nodemailer.createTransport({
-  host:   process.env.SMTP_HOST   || 'smtpout.secureserver.net',
-  port:   parseInt(process.env.SMTP_PORT || '465'),
-  secure: true,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-  tls: { rejectUnauthorized: false },
-});
-
-/* ── Contact form endpoint ── */
-app.post('/send', async (req, res) => {
-  const { fname, lname, email, sujet, message } = req.body;
+  const { fname, lname, email, sujet, message } = req.body || {};
 
   if (!fname || !email || !message) {
     return res.status(400).json({ ok: false, error: 'Champs requis manquants.' });
   }
 
   const subjectMap = {
-    don:        'Faire un don',
-    partenariat:'Partenariat',
-    benevole:   'Devenir bénévole',
-    presse:     'Presse / Médias',
-    autre:      'Autre',
+    don:         'Faire un don',
+    partenariat: 'Partenariat',
+    benevole:    'Devenir bénévole',
+    presse:      'Presse / Médias',
+    autre:       'Autre',
   };
-
   const sujetLabel = subjectMap[sujet] || sujet || 'Contact général';
 
   try {
-    await transporter.sendMail({
-      from:     `"Site Fondation CDA" <${process.env.SMTP_USER}>`,
-      to:       'info@chretiensdafrique.org',
-      replyTo:  email,
-      subject:  `[${sujetLabel}] Message de ${fname} ${lname || ''}`.trim(),
+    await resend.emails.send({
+      from:    'Site CDA <onboarding@resend.dev>',
+      to:      'info@chretiensdafrique.org',
+      replyTo: email,
+      subject: `[${sujetLabel}] Message de ${fname} ${lname || ''}`.trim(),
       html: `
         <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;">
           <div style="background:#1A3D2B;padding:24px 32px;">
@@ -70,11 +52,9 @@ app.post('/send', async (req, res) => {
       `,
     });
 
-    res.json({ ok: true });
+    return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Erreur SMTP :', err.message);
-    res.status(500).json({ ok: false, error: 'Échec de l\'envoi. Réessayez.' });
+    console.error('Resend error:', err.message);
+    return res.status(500).json({ ok: false, error: "Échec de l'envoi." });
   }
-});
-
-app.listen(PORT, () => console.log(`Serveur démarré sur http://localhost:${PORT}`));
+};

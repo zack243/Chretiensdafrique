@@ -158,27 +158,58 @@
   /* ---------- CONTACT FORM ---------- */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
-      const btn = contactForm.querySelector('.form-submit');
+      const btn  = contactForm.querySelector('.form-submit');
       const span = btn.querySelector('[data-i18n="form-submit"]');
       const lang = (window.CDA_i18n && document.documentElement.lang) || 'fr';
-      const t = window.CDA_i18n ? window.CDA_i18n.translations[lang] : null;
-      const sendingText = t ? t['form-sending'] : 'Envoi en cours…';
-      const sentText    = t ? t['form-sent']    : '✓ Message envoyé !';
+      const t    = window.CDA_i18n ? window.CDA_i18n.translations[lang] : null;
+      const sendingText  = t ? t['form-sending'] : 'Envoi en cours…';
+      const sentText     = t ? t['form-sent']    : '✓ Message envoyé !';
+      const errorText    = t ? t['form-error']   : '✗ Erreur — réessayez';
       const originalText = span ? span.textContent : btn.textContent;
-      if (span) { span.textContent = sendingText; } else { btn.textContent = sendingText; }
+
+      const setText = (txt) => { if (span) span.textContent = txt; else btn.textContent = txt; };
+
+      setText(sendingText);
       btn.disabled = true;
-      setTimeout(() => {
-        if (span) { span.textContent = sentText; } else { btn.textContent = sentText; }
-        btn.style.background = '#2C5E40';
+
+      try {
+        const data = Object.fromEntries(new FormData(contactForm));
+        const res  = await fetch('/send', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(data),
+        });
+        const json = await res.json();
+
+        if (json.ok) {
+          setText(sentText);
+          btn.style.background = '#2C5E40';
+          setTimeout(() => {
+            setText(originalText);
+            btn.style.background = '';
+            btn.disabled = false;
+            contactForm.reset();
+          }, 3000);
+        } else {
+          setText(errorText);
+          btn.style.background = '#c0392b';
+          setTimeout(() => {
+            setText(originalText);
+            btn.style.background = '';
+            btn.disabled = false;
+          }, 3000);
+        }
+      } catch (err) {
+        setText(errorText);
+        btn.style.background = '#c0392b';
         setTimeout(() => {
-          if (span) { span.textContent = originalText; } else { btn.textContent = originalText; }
+          setText(originalText);
           btn.style.background = '';
           btn.disabled = false;
-          contactForm.reset();
         }, 3000);
-      }, 1500);
+      }
     });
   }
 

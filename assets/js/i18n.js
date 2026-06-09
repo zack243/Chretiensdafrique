@@ -248,6 +248,7 @@
       'form-submit': 'Envoyer le message',
       'form-sending': 'Envoi en cours…',
       'form-sent': '✓ Message envoyé !',
+      'form-error': '✗ Erreur — réessayez',
       'map-text': 'Ngaliema · Kinshasa · RDC',
 
       /* ---- FOOTER ---- */
@@ -512,6 +513,7 @@
       'form-submit': 'Send message',
       'form-sending': 'Sending…',
       'form-sent': '✓ Message sent!',
+      'form-error': '✗ Error — please retry',
       'map-text': 'Ngaliema · Kinshasa · DRC',
 
       /* ---- FOOTER ---- */

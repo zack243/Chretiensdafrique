@@ -175,15 +175,33 @@
       btn.disabled = true;
 
       try {
-        const data = Object.fromEntries(new FormData(contactForm));
-        const res  = await fetch('/send', {
+        const formData = new FormData(contactForm);
+        const fname = formData.get('fname') || '';
+        const lname = formData.get('lname') || '';
+        const email = formData.get('email') || '';
+        const sujet = formData.get('sujet') || '';
+        const message = formData.get('message') || '';
+
+        const payload = {
+          access_key:  formData.get('access_key'),
+          subject:     '[' + (sujet || 'Contact') + '] Message de ' + fname + ' ' + lname,
+          from_name:   (fname + ' ' + lname).trim() || 'Visiteur CDA',
+          replyto:     email,
+          redirect:    'false',
+          name:        (fname + ' ' + lname).trim(),
+          email:       email,
+          sujet:       sujet,
+          message:     message,
+        };
+
+        const res = await fetch('https://api.web3forms.com/submit', {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify(data),
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(payload),
         });
         const json = await res.json();
 
-        if (json.ok) {
+        if (json.success) {
           setText(sentText);
           btn.style.background = '#2C5E40';
           setTimeout(() => {

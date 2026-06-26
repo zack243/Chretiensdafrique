@@ -558,6 +558,18 @@ section { padding: 8rem 0; }
 .intro-quote em { font-style: italic; color: var(--gold-bright); }
 .intro-text { color: rgba(255,255,255,0.58); font-size: 1rem; line-height: 1.9; }
 .intro-text p + p { margin-top: 1.25rem; }
+.intro-band-inner--quote-only {
+  grid-template-columns: 1fr;
+  max-width: 860px;
+  text-align: center;
+}
+.intro-band-inner--quote-only .intro-quote {
+  border-left: none;
+  padding-left: 0;
+  border-top: 3px solid var(--gold);
+  padding-top: 2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+}
 
 /* ============================================================
    3. ABOUT SECTION
@@ -890,7 +902,7 @@ section { padding: 8rem 0; }
   font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
   color: white; font-style: italic; line-height: 1.35; max-width: 480px;
 }
-.plan-goals-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.plan-goals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .plan-goal {
   text-align: center; padding: 2rem 1.5rem;
   border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;
@@ -1275,7 +1287,7 @@ footer { background: #070e0a; padding: 5rem 2rem 2.5rem; }
    ============================================================ */
 @media (max-width: 1200px) {
   .impact-stats { grid-template-columns: repeat(2, 1fr); }
-  .plan-goals-grid { grid-template-columns: repeat(2, 1fr); }
+  .plan-goals-grid { grid-template-columns: repeat(3, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 
